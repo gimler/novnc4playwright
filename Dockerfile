@@ -6,6 +6,9 @@ ARG WEBSOCKIFY_VERSION=master
 
 FROM mcr.microsoft.com/playwright:${PLAYWRIGHT_VERSION}
 
+ARG NOVNC_VERSION
+ARG WEBSOCKIFY_VERSION
+
 # 安装依赖
 RUN apt-get update && apt-get install -y --no-install-recommends \
       xvfb \
