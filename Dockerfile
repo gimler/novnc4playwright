@@ -1,5 +1,5 @@
 # ===== 支持动态配置版本 =====
-ARG PLAYWRIGHT_VERSION=1.58.1-noble
+ARG PLAYWRIGHT_VERSION=v1.58.1-noble
 ARG PLAYWRIGHT_CLI_VERSION=1.58.1
 ARG NOVNC_VERSION=master
 ARG WEBSOCKIFY_VERSION=master
@@ -24,6 +24,10 @@ RUN git clone --depth 1 --branch ${NOVNC_VERSION} https://github.com/novnc/noVNC
 # 安装 Playwright CLI
 RUN npm install -g playwright@${PLAYWRIGHT_CLI_VERSION} \
  && npx playwright install --with-deps
+
+# codeception
+RUN npm install -g husky \
+    && npm install -g "gimler/module-playwright#php-warnings"
 
 WORKDIR /app
 
